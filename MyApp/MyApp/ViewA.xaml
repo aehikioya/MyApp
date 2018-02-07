@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behav="clr-namespace:MyApp.Behaviors"
+             x:Class="MyApp.ViewA"
+             x:Name="viewA">
+  <ContentView.Content>
+        <ListView ItemsSource="{Binding MyList}" x:Name="listView">
+            <ListView.Behaviors>
+                <behav:EventToCommandBehavior EventName="ItemTapped" Command="{Binding Source={x:Reference viewA}, Path=BindingContext.ItemTapCommand}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout >
+                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Email}" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>

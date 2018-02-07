@@ -23,15 +23,15 @@ namespace MyApp
 		{
 			MyList = new ObservableCollection<MyClass>()
 			{
-				AddNew("John", false),
-				AddNew("Smith", false),
-				AddNew("Sara", false),
+				AddNew("John", "john@gmail.com", false),
+				AddNew("Smith", "smith@hotmail.com", false),
+				AddNew("Sara", "sara@yahoo.com", false),
 			};
 		}
 
-		private MyClass AddNew(string name, bool isSelected)
+		private MyClass AddNew(string name, string email, bool isSelected)
 		{
-			var myClass = new MyClass(name, isSelected);
+			var myClass = new MyClass(name, email, isSelected);
 			myClass.PropertyChanged += MyClass_PropertyChanged;
 			return myClass;
 		}
